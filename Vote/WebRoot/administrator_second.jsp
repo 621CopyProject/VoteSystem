@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				<div>
 			<ul class="nav navbar-nav">
-				<li ><a href="administrator_first.jsp">新建投票</a></li>
+				<li ><a href="admin_first.jsp">新建投票</a></li>
 				<li class="active"><a href="administrator_second.jsp">删除投票</a></li>
 				<li ><a href="administrator_third.jsp">票数统计</a></li>
 		</ul>

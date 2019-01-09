@@ -58,6 +58,7 @@ String password = request.getParameter("password");
 	 				session.setAttribute("username", username);
 	 				response.sendRedirect("index.jsp");
 	 			} else {
+	 				session.setAttribute("username", username);
 	 				response.sendRedirect("administrator.jsp");
 	 			}
 

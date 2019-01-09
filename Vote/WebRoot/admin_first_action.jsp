@@ -17,13 +17,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
   </head>
   
   <body>
-   <% String count=request.getParameter("count");
-   out.print(count);%>
+  <%
+					request.setCharacterEncoding("UTF-8");
+		
+				%>
+  <%
+  	String themeid=request.getParameter("themeid");
+  	String optionnumber=request.getParameter("optionnumber");
+  	String[] option=new String[Integer.parseInt(optionnumber)+1];
+  	for(int i=1;i<option.length;i++){
+  		option[i] = request.getParameter("option"+i+"");
+  	}
+  	for(int i=1;i<option.length;i++){
+  		if(option[i] == null || "".equals(option[i].trim())){
+  			out.print("请将选项填写完整");
+  			%>
+				<input type="button" value="返回"
+					onClick="window.location.href='admin_first_d_action.jsp?themeid=<%= themeid%>'" />
+				<%
+					return;
+  		}
+  	}
+  	
+   %>
+  </body>
 </html>
