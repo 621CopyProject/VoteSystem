@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'admin_first_d_action.jsp' starting page</title>
+    <title>My JSP 'administrator_d.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -38,10 +38,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			String sql="delete from theme where themeid="+themeid+"";
 			pre=con.prepareStatement(sql);
 			pre.executeUpdate();
-			//System.out.print("成功");
+			System.out.print("成功");
 			}catch(Exception e){
 			e.printStackTrace();
 		}
-		response.sendRedirect("admin_first.jsp");
+		response.sendRedirect("administrator.jsp");
     %>
 </html>

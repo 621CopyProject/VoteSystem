@@ -42,7 +42,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					return;
   		}
   	}
-  	
+  	String URL="jdbc:sqlserver://127.0.0.1:1433;databaseName=Vote";
+  	Connection con=null;
+  	PreparedStatement pre = null;
+  	ResultSet result = null;
+  	try{
+  		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		con=DriverManager.getConnection(URL,"sa","123456");
+		String sql="insert into vote(themeid,number,optionname) values(?,?,?)";
+		pre=con.prepareStatement(sql);
+		for(int i=1;i<option.length;i++){
+			pre.setInt(1, Integer.parseInt(themeid));
+			pre.setInt(2, 0);
+			pre.setString(3, option[i]);
+			pre.executeUpdate();
+		}
+		out.print("创建成功，你的投票ID号是：");
+		out.print(themeid);
+  	}catch(Exception e){
+  		e.printStackTrace();
+  		//out.print("连接失败");
+  	}
+  	finally  
+  {  
+      try  
+      {  
+          // 逐一将上面的几个对象关闭，因为不关闭的话会影响性能、并且占用资源  
+          // 注意关闭的顺序，最后使用的最先关闭  
+          if (result != null)  
+              result.close();  
+          if (pre != null)  
+              pre.close();  
+          if (con != null)  
+              con.close();  
+          //System.out.println("数据库连接已关闭！");  
+      }  
+      catch (Exception e)  
+      {  
+          e.printStackTrace();  
+      }  
+  } 
    %>
+  <input type="button" value="确定"
+					onClick="window.location.href='admin_first.jsp'" />
   </body>
 </html>

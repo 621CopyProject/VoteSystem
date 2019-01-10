@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'admin_first_d_action.jsp' starting page</title>
+    <title>My JSP 'administrator_third_d.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -42,6 +42,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}catch(Exception e){
 			e.printStackTrace();
 		}
-		response.sendRedirect("admin_first.jsp");
+		response.sendRedirect("administrator_third.jsp");
     %>
 </html>
